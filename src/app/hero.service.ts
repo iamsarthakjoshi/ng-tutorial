@@ -11,8 +11,17 @@ import { HEROES } from './mock-heroes';
 export class HeroService {
   constructor(private messageService: MessageService) { }
 
+  /*
+    send the message _after_ fetching the heroes
+    of(HEROES) returns an Observable<Hero[]> that emits a single value, the array of mock heroes
+  */
   getHeroes(): Observable<Hero[]> {
-    this.messageService.add('HeroService: fetched heroes'); // send the message _after_ fetching the heroes
-    return of(HEROES); // of(HEROES) returns an Observable<Hero[]> that emits a single value, the array of mock heroes
+    this.messageService.add('HeroService: fetched heroes');
+    return of(HEROES);
+  }
+
+  getHero(id: number): Observable<Hero> {
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(HEROES.find(hero => hero.id === id));
   }
 }
