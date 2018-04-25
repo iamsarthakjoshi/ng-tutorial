@@ -12,7 +12,7 @@ import { MessageService } from './message.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { HttpInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
 /*
@@ -32,7 +32,9 @@ the @NgModule decorator identifies AppModule as an NgModule class.
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    InMemoryDataService
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [HeroService, MessageService], // the service providers
   bootstrap: [AppComponent] // the root component that Angular creates and inserts into the index.html host web page.
