@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 /*
 the @NgModule decorator identifies AppModule as an NgModule class. 
@@ -25,7 +26,8 @@ the @NgModule decorator identifies AppModule as an NgModule class.
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule,
